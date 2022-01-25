@@ -69,19 +69,8 @@
               title: 'Wake up',
               done: false
 
-            },
-             {
-              id: 2,
-              title: 'Get Bananas',
-               done: false
-
-            },
-             {
-              id: 3,
-              title: 'Eat Bananas',
-               done: false
-
             }
+      
           
         ]
       }
