@@ -1,5 +1,11 @@
 <template>
    <div class="home">
+     <v-text-field
+            class="pa-3"
+            solo
+            label="Add todo"
+            append-icon="mdi-map-marker"
+          ></v-text-field>
      <v-list
       class="pt-0"
       flat
@@ -26,10 +32,17 @@
               >{{task.title}}</v-list-item-title>
             
             </v-list-item-content>
+         
+
+          <v-list-item-action> 
+            <v-btn
+             icon
+             @click.stop="deleteTask(task.id)"
+            > 
+              <v-icon color="primary lighten-1">mdi-delete-alert</v-icon>
+            </v-btn>
+          </v-list-item-action>
           </template>
-
-          <v-list-item-action
-
         </v-list-item>
         <v-divider></v-divider>
       </div>
@@ -71,6 +84,9 @@
       doneTask(id){
         let task = this.tasks.filter(task => task.id === id)[0]
         task.done = !task.done
+     },
+     deleteTask(id){
+        this.tasks = this.tasks.filter(task => task.id !== id)
      }
     }
   }
