@@ -1,12 +1,14 @@
 <template>
    <div class="home">
      <v-list
-    
-      two-line
+      class="pt-0"
       flat
     >
-      
-        <v-list-item>
+      <div
+          v-for="task in tasks"
+         :key="task.id"
+         >
+           <v-list-item>
           <template v-slot:default="{ active, }">
             <v-list-item-action>
               <v-checkbox
@@ -16,61 +18,14 @@
             </v-list-item-action>
 
             <v-list-item-content>
-              <v-list-item-title>Notifications</v-list-item-title>
-              <v-list-item-subtitle>Allow notifications</v-list-item-subtitle>
+              <v-list-item-title>{{task.title}}</v-list-item-title>
+            
             </v-list-item-content>
           </template>
         </v-list-item>
-
-        <v-list-item>
-          <template v-slot:default="{ active }">
-            <v-list-item-action>
-              <v-checkbox
-                :input-value="active"
-                color="primary"
-              ></v-checkbox>
-            </v-list-item-action>
-
-            <v-list-item-content>
-              <v-list-item-title>Sound</v-list-item-title>
-              <v-list-item-subtitle>Hangouts message</v-list-item-subtitle>
-            </v-list-item-content>
-          </template>
-        </v-list-item>
-
-        <v-list-item>
-          <template v-slot:default="{ active }">
-            <v-list-item-action>
-              <v-checkbox
-                :input-value="active"
-                color="primary"
-              ></v-checkbox>
-            </v-list-item-action>
-
-            <v-list-item-content>
-              <v-list-item-title>Video sounds</v-list-item-title>
-              <v-list-item-subtitle>Hangouts video call</v-list-item-subtitle>
-            </v-list-item-content>
-          </template>
-        </v-list-item>
-
-        <v-list-item>
-          <template v-slot:default="{ active }">
-            <v-list-item-action>
-              <v-checkbox
-                :input-value="active"
-                color="primary"
-              ></v-checkbox>
-            </v-list-item-action>
-
-            <v-list-item-content>
-              <v-list-item-title>Invites</v-list-item-title>
-              <v-list-item-subtitle>Notify when receiving invites</v-list-item-subtitle>
-            </v-list-item-content>
-          </template>
-        </v-list-item>
-   
-    </v-list>
+        <v-divider></v-divider>
+      </div>
+    </v-list> 
    </div>
 </template>
 
@@ -79,5 +34,30 @@
 
   export default {
     name: 'Home',
+    data() {
+      return{
+        tasks: [
+            {
+              id: 1,
+              title: 'Wake up',
+              done: false
+
+            },
+             {
+              id: 2,
+              title: 'Get Bananas',
+               done: false
+
+            },
+             {
+              id: 1,
+              title: 'Eat Bananas',
+               done: false
+
+            }
+          
+        ]
+      }
+    }
   }
 </script>
