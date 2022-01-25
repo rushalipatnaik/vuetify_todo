@@ -24,6 +24,7 @@
         <v-list-item
           v-for="item in items"
           :key="item.title"
+          :to="item.to"
           link
         >
           <v-list-item-icon>
@@ -57,9 +58,9 @@
     data: () => ({
        drawer: null,
         items: [
-          { title: 'Todo', icon: 'mdi-view-dashboard' },
+          { title: 'Todo', icon: 'mdi-format-list-checks', to: '/' },
    
-          { title: 'About', icon: 'mdi-help-box' },
+          { title: 'About', icon: 'mdi-help-box', to: '/about' },
         ],
      
     }),
